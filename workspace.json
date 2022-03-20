@@ -1,4 +1,7 @@
 {
   "version": 2,
-  "projects": {}
+  "projects": {
+    "map": "packages/map",
+    "set": "packages/set"
+  }
 }

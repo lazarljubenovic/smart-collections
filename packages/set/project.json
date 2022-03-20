@@ -1,0 +1,50 @@
+{
+  "root": "packages/set",
+  "sourceRoot": "packages/set/src",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "options": {
+        "outputPath": "dist/packages/set",
+        "main": "packages/set/src/index.ts",
+        "tsConfig": "packages/set/tsconfig.lib.json",
+        "assets": [
+          "packages/set/*.md"
+        ]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": [
+        "{options.outputFile}"
+      ],
+      "options": {
+        "lintFilePatterns": [
+          "packages/set/**/*.ts"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": [
+        "coverage/packages/set"
+      ],
+      "options": {
+        "jestConfig": "packages/set/jest.config.js",
+        "passWithNoTests": true
+      }
+    },
+    "publish": {
+      "executor": "@nrwl/workspace:run-commands",
+      "outputs": [],
+      "options": {
+        "command": "npm publish --tag=latest --access public",
+        "cwd": "dist/packages/set"
+      }
+    }
+  },
+  "tags": []
+}
